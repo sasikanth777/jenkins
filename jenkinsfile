@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/freeCodeCamp/boilerplate-express'
+            }
+        }
+        
+        stage('Run Tests') {
+            steps {
+                sh 'npm install'
+                sh 'npm test'
+            }
+        }
+
+        stage('Build Container') {
+            steps {
+                // Build your container here
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                // Deploy to Kubernetes cluster
+            }
+        }
+
+        stage('Demo Scaling') {
+            steps {
+                // Demonstrate scaling
+            }
+        }
+    }
+}
